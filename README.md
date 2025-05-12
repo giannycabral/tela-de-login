@@ -31,14 +31,14 @@ Uma interface de Login moderna, com **tema Dark**, **design acessível** e **tot
 ## 📱 Responsividade
 O layout é adaptado para:
 
-Smartphones
-Tablets
-Desktops
+- Smartphones
+- Tablets
+- Desktops
 
 ## 🎯 Melhorias Futuras
- Adicionar interação com API para autenticação.
- Implementar notificações de erro.
- Suporte a temas claro e escuro.
+ - Adicionar interação com API para autenticação.
+ - Implementar notificações de erro.
+ - Suporte a temas claro e escuro.
 
 ## 🖼️ Prévia do Projeto
 Tela de Login
