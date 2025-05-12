@@ -41,7 +41,7 @@ O layout é adaptado para:
  - Suporte a temas claro e escuro.
 
 ## 🖼️ Prévia do Projeto
-Tela de Login
+![Image](https://github.com/user-attachments/assets/f9f5797f-d43b-4c21-b667-ecb759a440fd)
 
 ## 🤝 Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
