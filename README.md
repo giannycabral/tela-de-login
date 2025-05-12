@@ -15,7 +15,6 @@ Uma interface de Login moderna, com **tema Dark**, **design acessível** e **tot
 - **CSS3**:
   - Flexbox e Grid para layout.
   - Media Queries para responsividade.
-- **JavaScript (opcional)**: Para futuras interações dinâmicas.
 
 ## 🚀 Como Usar
 
