@@ -1,15 +1,15 @@
 body{
     margin: 0;
     background: #ffe6fa;
-    font-family: 'Press Start 2P', cursive, monospace;
+    font-family: 'Press Start 2P', 'Pixelify Sans', cursive, monospace;
     image-rendering: pixelated;
     min-height: 100vh;
     position: relative;
     /* Background animado kawaii */
     animation: bg-pulse 20s infinite alternate ease-in-out;
     background-image: 
-        repeating-linear-gradient(135deg, #ffd6ec 0 2px, transparent 2px 40px), 
-        repeating-linear-gradient(225deg, #ffd6ec 0 2px, transparent 2px 40px),
+        repeating-linear-gradient(135deg, rgba(255, 214, 236, 0.7) 0 2px, transparent 2px 40px), 
+        repeating-linear-gradient(225deg, rgba(255, 214, 236, 0.7) 0 2px, transparent 2px 40px),
         radial-gradient(circle at 50% 0%, #fff0fa, transparent 40%),
         radial-gradient(circle at 100% 100%, #ffcbf2, transparent 30%);
 }
@@ -29,22 +29,22 @@ body::before {
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 10% 20%, #fff 1px, transparent 1px),
-        radial-gradient(circle at 25% 65%, #fff 1px, transparent 1px),
-        radial-gradient(circle at 40% 35%, #fff 1px, transparent 1px),
-        radial-gradient(circle at 60% 80%, #fff 1px, transparent 1px),
-        radial-gradient(circle at 75% 40%, #fff 1px, transparent 1px),
-        radial-gradient(circle at 90% 10%, #fff 1px, transparent 1px);
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle at 25% 65%, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle at 40% 35%, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle at 60% 80%, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle at 75% 40%, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.8) 1px, transparent 1px);
     background-size: 150px 150px;
-    opacity: 0.4;
-    animation: twinkle 8s infinite alternate;
+    opacity: 0.6;
+    animation: twinkle 8s infinite alternate ease-in-out;
     pointer-events: none;
     z-index: -1;
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
 }
 
 @font-face {
@@ -53,6 +53,11 @@ body::before {
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Pixelify Sans';
+    src: url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+    font-display: swap;
+}
 
 body * {
     box-sizing: border-box;
@@ -171,10 +176,10 @@ body * {
     align-items: center;
     flex-direction: column;
     border: 6px solid #ffb6d5;
-    background: #fff0fa;
-    box-shadow: 0 0 0 10px #ffe6fa, 0 0 0 18px #ffb6d5, 0 10px 20px rgba(255, 110, 199, 0.4);
+    background: linear-gradient(135deg, #fff0fa 0%, #ffebfc 100%);
+    box-shadow: 0 0 0 10px #ffe6fa, 0 0 0 18px #ffb6d5, 0 15px 35px rgba(255, 110, 199, 0.5);
     margin: 8px;
-    border-radius: 24px;
+    border-radius: 32px;
     position: relative;
     overflow: hidden;
     animation: card-float 6s infinite alternate ease-in-out;
@@ -213,11 +218,16 @@ body * {
 .left-login > h1 {
     font-size: 2vw;
     color: #ff6ec7;
-    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ffb6d5;
+    text-shadow: 2px 2px 0 #fff, 3px 3px 0 #ffb6d5, 0 0 10px rgba(255, 255, 255, 0.8);
     letter-spacing: 2px;
     font-family: 'Press Start 2P', cursive, monospace;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     position: relative;
+    transition: transform 0.3s ease;
+}
+
+.left-login > h1:hover {
+    transform: scale(1.05);
 }
 
 /* Kawaii face below h1 */
@@ -225,20 +235,32 @@ body * {
     content: '（｡♥‿♥｡）';
     display: block;
     font-size: 1.2vw;
-    color: #ffb6d5;
+    color: #ff6ec7;
     margin-top: 12px;
-    text-shadow: 1px 1px 0 #fff, 2px 2px 0 #ff6ec7;
+    text-shadow: 1px 1px 0 #fff, 2px 2px 0 #ffb6d5;
+    animation: face-bounce 3s infinite alternate ease-in-out;
+}
+
+@keyframes face-bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px) scale(1.1); }
 }
 
 .left-login-image{
     width: 25vw;
     image-rendering: pixelated;
-    border: 4px solid #ffb6d5;
+    border: 5px solid #ffb6d5;
     background: #fff0fa;
-    box-shadow: 0 0 0 8px #ffe6fa;
+    box-shadow: 0 0 0 8px #ffe6fa, 0 10px 25px rgba(255, 110, 199, 0.3);
     margin-top: 24px;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.left-login-image:hover {
+    transform: scale(1.03) translateY(-8px);
+    box-shadow: 0 0 0 8px #ffe6fa, 0 15px 35px rgba(255, 110, 199, 0.5);
 }
 
 .right-login{
@@ -248,10 +270,10 @@ body * {
     justify-content: center;
     align-items: center;
     border: 6px solid #ffb6d5;
-    background: #fff0fa;
-    box-shadow: 0 0 0 10px #ffe6fa, 0 0 0 18px #ffb6d5, 0 10px 20px rgba(255, 110, 199, 0.4);
+    background: linear-gradient(225deg, #fff0fa 0%, #ffebfc 100%);
+    box-shadow: 0 0 0 10px #ffe6fa, 0 0 0 18px #ffb6d5, 0 15px 35px rgba(255, 110, 199, 0.5);
     margin: 8px;
-    border-radius: 24px;
+    border-radius: 32px;
     position: relative;
     overflow: hidden;
     animation: card-float 6s infinite alternate-reverse ease-in-out;
@@ -264,44 +286,45 @@ body * {
     align-items: center;
     flex-direction: column;
     padding: 36px 40px 32px 40px;
-    background: #fff6fc;
+    background: linear-gradient(135deg, #fff6fc 0%, #fffcff 100%);
     border: 6px solid #ffb6d5;
-    box-shadow: 0 0 0 10px #ffe6fa, 0 15px 25px rgba(255, 110, 199, 0.3);
-    border-radius: 20px;
+    box-shadow: 0 0 0 10px #ffe6fa, 0 20px 40px rgba(255, 110, 199, 0.4);
+    border-radius: 24px;
     image-rendering: pixelated;
     position: relative;
     overflow: visible;
     transform-style: preserve-3d;
     perspective: 1000px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    backdrop-filter: blur(5px);
 }
 
 .card-login:hover {
-    transform: translateY(-5px) rotateX(5deg);
-    box-shadow: 0 0 0 10px #ffe6fa, 0 20px 35px rgba(255, 110, 199, 0.4);
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 0 0 10px #ffe6fa, 0 25px 50px rgba(255, 110, 199, 0.5);
 }
 
 /* Pixel heart above card */
 .card-login::before {
     content: '❤';
     position: absolute;
-    top: -32px;
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #ff6ec7;
-    filter: drop-shadow(0 2px 0 #fff) drop-shadow(0 4px 0 #ffb6d5);
+    filter: drop-shadow(0 2px 0 #fff) drop-shadow(0 4px 0 #ffb6d5) drop-shadow(0 0 10px rgba(255, 110, 199, 0.6));
     z-index: 2;
 }
 
 .card-login > h1 {
     color: #ff6ec7;
     font-weight: bold;
-    margin: 0 0 16px 0;
+    margin: 0 0 24px 0;
     font-family: 'Press Start 2P', cursive, monospace;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ffb6d5;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ffb6d5, 0 0 15px rgba(255, 110, 199, 0.4);
 }
 
 .card-login > h1 {
@@ -375,7 +398,7 @@ body * {
 .textfield > input {
     width: 100%;
     border: 4px solid #ffb6d5;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 14px 16px;
     background: #fff0fa;
     color: #ff6ec7;
@@ -386,12 +409,12 @@ body * {
     margin-bottom: 8px;
     image-rendering: pixelated;
     letter-spacing: 1px;
-    box-shadow: 0 2px 0 #ffe6fa, 0 4px 0 #ffb6d5, inset 0 0 20px rgba(255, 230, 250, 0.5);
-    transition: all 0.3s;
+    box-shadow: 0 2px 0 #ffe6fa, 0 4px 0 #ffb6d5, inset 0 0 20px rgba(255, 230, 250, 0.5), 0 0 0 rgba(255, 110, 199, 0);
+    transition: all 0.3s ease-out;
 }
 .textfield > input:focus {
     border: 4px solid #ff6ec7;
-    box-shadow: 0 0 0 4px #ffb6d5, 0 0 20px rgba(255, 110, 199, 0.3), inset 0 0 20px rgba(255, 230, 250, 0.5);
+    box-shadow: 0 0 0 4px #ffb6d5, 0 0 25px rgba(255, 110, 199, 0.4), inset 0 0 20px rgba(255, 230, 250, 0.5);
     transform: translateY(-2px);
 }
 
@@ -421,21 +444,21 @@ body * {
     font-weight: bold;
     letter-spacing: 2px;
     color: #fff0fa;
-    background: linear-gradient(90deg, #ffb6d5 0%, #ff6ec7 100%);
+    background: linear-gradient(90deg, #ff6ec7 0%, #ff3eb5 100%);
     cursor: pointer;
     font-family: 'Press Start 2P', cursive, monospace;
     font-size: 1rem;
-    box-shadow: 0 2px 0 #ffe6fa, 0 4px 0 #ffb6d5, 0 8px 12px rgba(255, 110, 199, 0.4);
-    transition: all 0.3s;
+    box-shadow: 0 2px 0 #ffe6fa, 0 4px 0 #ffb6d5, 0 8px 15px rgba(255, 110, 199, 0.4);
+    transition: all 0.3s ease-out;
     image-rendering: pixelated;
     position: relative;
     overflow: visible;
-    animation: btn-pulse 2s infinite alternate;
+    animation: btn-pulse 2s infinite alternate ease-in-out;
 }
 
 @keyframes btn-pulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.03); }
+    0% { transform: scale(1); box-shadow: 0 2px 0 #ffe6fa, 0 4px 0 #ffb6d5, 0 8px 15px rgba(255, 110, 199, 0.4); }
+    100% { transform: scale(1.03); box-shadow: 0 2px 0 #ffe6fa, 0 4px 0 #ffb6d5, 0 12px 20px rgba(255, 110, 199, 0.5); }
 }
 
 .btn-login::after {
@@ -446,25 +469,27 @@ body * {
     transform: translateY(-50%);
     color: #fff6fc;
     font-size: 1.2rem;
-    text-shadow: 1px 1px 0 #ffb6d5;
+    text-shadow: 1px 1px 0 #ffb6d5, 0 0 5px rgba(255, 255, 255, 0.8);
     animation: star-spin 3s linear infinite;
 }
 
 @keyframes star-spin {
-    0% { transform: translateY(-50%) rotate(0deg); }
-    100% { transform: translateY(-50%) rotate(360deg); }
+    0% { transform: translateY(-50%) rotate(0deg) scale(1); }
+    50% { transform: translateY(-50%) rotate(180deg) scale(1.2); }
+    100% { transform: translateY(-50%) rotate(360deg) scale(1); }
 }
 
 .btn-login:hover {
-    background: linear-gradient(90deg, #ff6ec7 0%, #ffb6d5 100%);
+    background: linear-gradient(90deg, #ff3eb5 0%, #ff6ec7 100%);
     color: #fff0fa;
-    box-shadow: 0 0 0 4px #ffb6d5, 0 8px 20px rgba(255, 110, 199, 0.6);
-    transform: translateY(-2px);
+    box-shadow: 0 0 0 4px #ffb6d5, 0 10px 25px rgba(255, 110, 199, 0.7);
+    transform: translateY(-4px);
 }
 
 .btn-login:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px 0 #ffe6fa, 0 2px 0 #ffb6d5, 0 4px 8px rgba(255, 110, 199, 0.4);
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 #ffe6fa, 0 2px 0 #ffb6d5, 0 4px 8px rgba(255, 110, 199, 0.3);
+    background: linear-gradient(90deg, #ff6ec7 0%, #ff3eb5 100%);
 }
 
 @media only screen and (max-width: 950px){
@@ -716,17 +741,17 @@ body * {
   text-decoration: none;
   padding: 8px 10px;
   position: relative;
-  transition: all 0.3s;
-  background: rgba(255, 240, 250, 0.3);
+  transition: all 0.3s ease-out;
+  background: rgba(255, 240, 250, 0.5);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(255, 182, 213, 0.2);
+  box-shadow: 0 2px 8px rgba(255, 182, 213, 0.3);
 }
 
 .link-kawaii:hover {
-  color: #ff4db8;
-  transform: scale(1.08) translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 110, 199, 0.3);
-  background: rgba(255, 240, 250, 0.6);
+  color: #ff3eb5;
+  transform: scale(1.12) translateY(-3px) rotate(1deg);
+  box-shadow: 0 8px 20px rgba(255, 110, 199, 0.4);
+  background: rgba(255, 240, 250, 0.8);
 }
 
 .link-kawaii:active {
@@ -741,9 +766,9 @@ body * {
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, transparent, #ff6ec7, transparent);
-  transition: width 0.3s, left 0.3s;
-  box-shadow: 0 0 5px #ff6ec7;
+  background: linear-gradient(to right, transparent, #ff3eb5, transparent);
+  transition: width 0.4s ease-out, left 0.4s ease-out;
+  box-shadow: 0 0 8px #ff6ec7;
 }
 
 .link-kawaii:hover::after {
@@ -757,25 +782,25 @@ body * {
   width: 16px;
   height: 16px;
   margin-right: 6px;
-  transition: transform 0.3s;
+  transition: transform 0.4s ease;
 }
 
 .pixel-icon-star {
   background: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 2l1.5 3h3.5l-2.5 2.5 1 3.5-3.5-2-3.5 2 1-3.5-2.5-2.5h3.5z" fill="%23ffb6d5"/></svg>') no-repeat center/contain;
-  animation: star-twinkle 3s infinite ease-in-out alternate;
+  animation: star-twinkle 3s infinite ease-in-out alternate-reverse;
 }
 
 @keyframes star-twinkle {
-  0% { transform: rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(255, 110, 199, 0)); }
-  100% { transform: rotate(10deg) scale(1.15); filter: drop-shadow(0 0 3px rgba(255, 110, 199, 0.8)); }
+  0% { transform: rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(255, 110, 199, 0.2)); }
+  100% { transform: rotate(15deg) scale(1.25); filter: drop-shadow(0 0 5px rgba(255, 110, 199, 0.8)); }
 }
 
 .pixel-icon-key {
   background: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="5" height="5" fill="%23ffb6d5"/><rect x="7" y="8" width="7" height="1" fill="%23ffb6d5"/><rect x="9" y="5" width="1" height="3" fill="%23ffb6d5"/><rect x="12" y="5" width="1" height="3" fill="%23ffb6d5"/></svg>') no-repeat center/contain;
-  animation: key-float 2s infinite ease-in-out alternate;
+  animation: key-float 3s infinite ease-in-out alternate;
 }
 
 @keyframes key-float {
-  0% { transform: translateY(0); filter: drop-shadow(0 0 0 rgba(255, 110, 199, 0)); }
-  100% { transform: translateY(-3px); filter: drop-shadow(0 3px 3px rgba(255, 110, 199, 0.5)); }
+  0% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 0 rgba(255, 110, 199, 0.2)); }
+  100% { transform: translateY(-4px) rotate(5deg); filter: drop-shadow(0 4px 5px rgba(255, 110, 199, 0.6)); }
 }

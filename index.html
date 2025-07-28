@@ -10,65 +10,61 @@
 </head>
 
 <body>
-    <div class="main-login">
-        <div class="left-login">
-            <h1>Faça login<br>E entre para o nosso time</h1>
-            <img src="animacao.svg" class="left-login-image" alt="Garota Estudando animação">
-        </div>
-        <div class="right-login">
-            <div class="card-login">
-                <div id="avatar-container" class="avatar-kawaii"></div>
-                <h1>LOGIN</h1>
+    <main class="main-login" role="main">
+        <section class="left-login" aria-label="Apresentação">
+            <h1 tabindex="0">Faça login<br>E entre para o nosso time</h1>
+            <img src="animacao.svg" class="left-login-image" alt="Garota estudando, animação em pixel art kawaii" tabindex="0">
+        </section>
+        <section class="right-login" aria-label="Formulário de login">
+            <form class="card-login" autocomplete="on" aria-labelledby="login-title">
+                <div id="avatar-container" class="avatar-kawaii" aria-label="Avatar aleatório" tabindex="0"></div>
+                <h1 id="login-title" tabindex="0">LOGIN</h1>
                 <div class="textfield">
                     <label for="usuario">Usuário</label>
-                    <input type="text" name="usuario" placeholder="Usuário">
+                    <input type="text" name="usuario" id="usuario" placeholder="Usuário" autocomplete="username" aria-required="true" tabindex="0">
                 </div>
                 <div class="textfield">
                     <label for="senha">Senha</label>
                     <div class="senha-wrapper">
-                        <input type="password" name="senha" id="senha" placeholder="Senha">
-                        <button type="button" id="toggleSenha" aria-label="Mostrar/ocultar senha"
-                            class="toggle-senha-btn">
+                        <input type="password" name="senha" id="senha" placeholder="Senha" autocomplete="off" aria-required="true" tabindex="0" inputmode="text" autocorrect="off" autocapitalize="off" spellcheck="false">
+                        <button type="button" id="toggleSenha" aria-label="Mostrar ou ocultar senha" class="toggle-senha-btn" tabindex="0">
                             <!-- Ícone pixel art de olho -->
-                            <svg id="olhoIcon" width="24" height="24" viewBox="0 0 24 24"
-                                style="image-rendering: pixelated;" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="2" y="10" width="20" height="4" fill="#ffb6d5" stroke="#ff6ec7"
-                                    stroke-width="1" />
-                                <rect x="8" y="12" width="8" height="4" fill="#fff0fa" stroke="#ff6ec7"
-                                    stroke-width="1" />
+                            <svg id="olhoIcon" width="24" height="24" viewBox="0 0 24 24" style="image-rendering: pixelated;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                <rect x="2" y="10" width="20" height="4" fill="#ffb6d5" stroke="#ff6ec7" stroke-width="1" />
+                                <rect x="8" y="12" width="8" height="4" fill="#fff0fa" stroke="#ff6ec7" stroke-width="1" />
                                 <rect x="11" y="13" width="2" height="2" fill="#ff6ec7" />
                             </svg>
                         </button>
                     </div>
                 </div>
-                <div id="login-error"
-                    style="display:none; color:#ff6ec7; font-family:'Press Start 2P', cursive, monospace; font-size:0.8rem; margin-top:10px; text-align:center; text-shadow:1px 1px 0 #fff, 2px 2px 0 #ffb6d5;">
+                <div id="login-error" role="alert" aria-live="assertive"
+                    style="display:none; color:#c2185b; font-family:'Press Start 2P', cursive, monospace; font-size:0.9rem; margin-top:10px; text-align:center; text-shadow:1px 1px 0 #fff, 2px 2px 0 #ffb6d5; background:#fff0fa; border:2px solid #c2185b; border-radius:8px;">
                     <span class="pixel-heart"
-                        style="vertical-align:middle; display:inline-block; width:18px; height:18px; background:url('data:image/svg+xml;utf8,<svg width=\'18\' height=\'18\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'24\' height=\'24\' fill=\'none\' /><path d=\'M4 8h2V6h2V4h4v2h2v2h2v2h2v2h-2v2h-2v2h-2v2h-2v-2h-2v-2H6v-2H4V8z\' fill=\'%23ff6ec7\' stroke=\'%23fff\' stroke-width=\'1\' /></svg>') no-repeat center/contain;">
+                        style="vertical-align:middle; display:inline-block; width:18px; height:18px; background:url('data:image/svg+xml;utf8,<svg width=\'18\' height=\'18\' viewBox=\'0 0 24 24\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'24\' height=\'24\' fill=\'none\' /><path d=\'M4 8h2V6h2V4h4v2h2v2h2v2h2v2h-2v2h-2v2h-2v2h-2v-2h-2v-2H6v-2H4V8z\' fill=\'%23c2185b\' stroke=\'%23fff\' stroke-width=\'1\' /></svg>') no-repeat center/contain;">
                     </span>
                     <span id="login-error-msg"></span>
                 </div>
                 <div class="lembrar-wrapper">
                     <label class="pixel-checkbox-label">
-                        <input type="checkbox" id="lembrar" class="pixel-checkbox">
+                        <input type="checkbox" id="lembrar" class="pixel-checkbox" tabindex="0">
                         <span class="pixel-checkbox-custom"></span>
                         <span class="checkbox-text">Lembrar de mim</span>
                     </label>
                 </div>
-                <button class="btn-login" id="btn-login">Login</button>
-                <div class="links-kawaii">
-                    <a href="#" class="link-kawaii link-criar">
-                        <span class="pixel-icon-star"></span>
+                <button class="btn-login" id="btn-login" type="submit" tabindex="0">Login</button>
+                <nav class="links-kawaii" aria-label="Links auxiliares">
+                    <a href="#" class="link-kawaii link-criar" tabindex="0">
+                        <span class="pixel-icon-star" aria-hidden="true"></span>
                         Criar conta
                     </a>
-                    <a href="#" class="link-kawaii link-senha">
-                        <span class="pixel-icon-key"></span>
+                    <a href="#" class="link-kawaii link-senha" tabindex="0">
+                        <span class="pixel-icon-key" aria-hidden="true"></span>
                         Esqueci minha senha
                     </a>
-                </div>
-            </div>
-        </div>
-    </div>
+                </nav>
+            </form>
+        </section>
+    </main>
     <script src="js/loading.js"></script>
     <script src="js/login.js"></script>
     <script src="js/avatar.js"></script>
